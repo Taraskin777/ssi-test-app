@@ -9,5 +9,5 @@ export const routes: Routes = [
     component: AddItemComponent,
   },
   { path: 'edit-item', component: EditItemComponent },
-  { path: 'list-of-items', component: ListOfItemsComponent },
+  { path: '', component: ListOfItemsComponent },
 ];
