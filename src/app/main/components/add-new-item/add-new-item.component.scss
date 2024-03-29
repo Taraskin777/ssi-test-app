@@ -1,6 +1,7 @@
 form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
   align-content: center;
   width: 25vw;
   .submit_btn {
@@ -25,4 +26,9 @@ form {
 
 ::ng-deep .mat-mdc-select-value {
   color: black !important;
+}
+
+
+input::placeholder {
+   color: rgba(0, 0, 255, 0.651) !important;
 }
