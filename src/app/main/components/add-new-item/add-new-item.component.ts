@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,7 +30,10 @@ import {
   styleUrl: './add-new-item.component.scss',
 })
 export class AddNewItemComponent {
-  constructor(private itemsService: ItemsService) {}
+  constructor(
+    private itemsService: ItemsService,
+    private router: Router
+  ) {}
 
   profileForm = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -47,8 +51,8 @@ export class AddNewItemComponent {
   onSubmit() {
     if (this.profileForm.valid) {
       this.itemsService.addNewItem(this.profileForm.value as IEmployee);
-
-      this.profileForm.reset();
+      this.router.navigate(['/']);
     }
+    this.profileForm.reset();
   }
 }
