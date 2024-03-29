@@ -1,0 +1,35 @@
+form {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   align-content: center;
+   width: 25vw;
+   .submit_btn {
+     background-color: rgb(54, 61, 250);
+     color: white;
+     width: 150px;
+     margin: 0 auto;
+   }
+ }
+ 
+ ::ng-deep .mdc-floating-label {
+   color: rgba(0, 0, 0, 0.781) !important;
+ }
+ 
+ ::ng-deep .mdc-text-field {
+   background-color: rgb(200, 200, 200) !important;
+ }
+ 
+ ::ng-deep .mat-mdc-input-element {
+   color: black !important;
+ }
+ 
+ ::ng-deep .mat-mdc-select-value {
+   color: black !important;
+ }
+ 
+ 
+ input::placeholder {
+    color: rgba(0, 0, 255, 0.651) !important;
+ }
+ 

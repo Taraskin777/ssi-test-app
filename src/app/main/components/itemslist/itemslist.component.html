@@ -9,7 +9,7 @@
     <p>Information: {{ employee.info }}</p>
     <div class="btns">
       <button type="button" (click)="deleteItem(employee.id)">Delete</button>
-      <button type="button">Edit</button>
+      <button type="button" (click)="editItem(employee.id)">Edit</button>
     </div>
   </li>
 </ul>

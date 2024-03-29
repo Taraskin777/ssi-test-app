@@ -7,6 +7,7 @@ import { IEmployee } from '../../shared/interfaces/employees';
   providedIn: 'root',
 })
 export class ItemsService {
+  private selectedEmployee?: IEmployee;
   constructor() {}
 
   public getItems(): IEmployee[] {
@@ -39,9 +40,34 @@ export class ItemsService {
     localStorage.setItem('itemData', JSON.stringify(existingData));
   }
 
-  public editItem() {}
+  public setSelectedEmployee(employee: IEmployee): void {
+    this.selectedEmployee = employee;
+  }
 
-  public removeItem(id: string) {
+  public getSelectedEmployee(): IEmployee | null {
+    return this.selectedEmployee ?? null;
+  }
+
+  public editItem(id: string, formData: Partial<IEmployee>): void {
+    const existingData: IEmployee[] = this.getItems();
+    const index = existingData.findIndex(item => item.id === id);
+    if (index !== -1) {
+      const editedEmployee: IEmployee = {
+        id: existingData[index].id,
+        name: formData.name || existingData[index].name,
+        surname: formData.surname || existingData[index].surname,
+        email: formData.email || existingData[index].email,
+        phone: formData.phone || existingData[index].phone,
+        category: formData.category || existingData[index].category,
+        info: formData.info || existingData[index].info,
+      };
+
+      existingData[index] = editedEmployee;
+      localStorage.setItem('itemData', JSON.stringify(existingData));
+    }
+  }
+
+  public removeItem(id: string): void {
     const existingData: IEmployee[] = this.getItems();
     const index = existingData.findIndex(item => item.id === id);
     if (index !== -1) {

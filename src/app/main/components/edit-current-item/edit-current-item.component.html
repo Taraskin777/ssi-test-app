@@ -1,1 +1,72 @@
 <h1>edit-current-item works!</h1>
+<section>
+  <form [formGroup]="employeeForm">
+    <mat-form-field class="input_wrapper">
+      <mat-label for="name">Name</mat-label>
+      <input matInput id="name" type="text" formControlName="name" />
+      @if (employeeForm.get('name')?.hasError('required')) {
+        <mat-error>Name is <strong>required!</strong></mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="surname">Surname</mat-label>
+      <input matInput id="surname" type="text" formControlName="surname" />
+      @if (employeeForm.get('surname')?.hasError('required')) {
+        <mat-error>Surname is <strong>required!</strong></mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="email">Email</mat-label>
+      <input
+        matInput
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="Ex. pat@example.com" />
+      @if (!employeeForm.get('email')?.hasError('required')) {
+        <mat-error>Please enter a valid email address</mat-error>
+      }
+      @if (employeeForm.get('email')?.hasError('required')) {
+        <mat-error>Email is <strong>required!</strong></mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="phone">Phone</mat-label>
+      <input
+        type="text"
+        id="phone"
+        formControlName="phone"
+        matInput
+        placeholder="Min. length 10 numbers" />
+      @if (employeeForm.get('phone')?.hasError('required')) {
+        <mat-error>Phone is <strong>required!</strong></mat-error>
+      }
+      @if (
+        employeeForm.get('phone')?.hasError('minlength') &&
+        employeeForm.get('phone')?.hasError('pattern')
+      ) {
+        <mat-error>Please enter a valid phone number</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Select category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option value="one">First category</mat-option>
+        <mat-option value="two">Second category</mat-option>
+      </mat-select>
+      @if (employeeForm.get('category')?.hasError('required')) {
+        <mat-error>Category is <strong>required!</strong></mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="info">Additional information</mat-label>
+      <textarea matInput id="info" formControlName="info"></textarea>
+    </mat-form-field>
+    <button
+      class="submit_btn"
+      mat-raised-button
+      [disabled]="employeeForm.invalid">
+      Submit
+    </button>
+  </form>
+</section>
