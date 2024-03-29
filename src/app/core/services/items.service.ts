@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 // import { Observable, BehaviorSubject } from 'rxjs';
-// import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import { IEmployee } from '../../shared/interfaces/employees';
 
 @Injectable({
@@ -22,11 +22,10 @@ export class ItemsService {
   public addNewItem(formData: Partial<IEmployee>): void {
     const existingData: IEmployee[] = this.getItems();
 
-    // const id = uuidv4();
-
-    // const newItem: IEmployee = { ...formData, id };
+    const id = uuidv4();
 
     const newEmployee: IEmployee = {
+      id,
       name: formData.name || null,
       surname: formData.surname || null,
       email: formData.email || null,
@@ -42,9 +41,12 @@ export class ItemsService {
 
   public editItem() {}
 
-  public removeItem(id: number) {
+  public removeItem(id: string) {
     const existingData: IEmployee[] = this.getItems();
-    existingData.splice(id, 1);
-    localStorage.setItem('itemData', JSON.stringify(existingData));
+    const index = existingData.findIndex(item => item.id === id);
+    if (index !== -1) {
+      existingData.splice(index, 1);
+      localStorage.setItem('itemData', JSON.stringify(existingData));
+    }
   }
 }

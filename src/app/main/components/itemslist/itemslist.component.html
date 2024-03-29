@@ -1,1 +1,15 @@
-<h1>Items list works!</h1>
+<h2>Employees list</h2>
+<ul>
+  <li *ngFor="let employee of listOfEmployees; trackBy: trackByEmployee">
+    <p>Name: {{ employee.name }}</p>
+    <p>Surname: {{ employee.surname }}</p>
+    <p>Email: {{ employee.email }}</p>
+    <p>Phone: {{ employee.phone }}</p>
+    <p>Category: {{ employee.category }}</p>
+    <p>Information: {{ employee.info }}</p>
+    <div class="btns">
+      <button type="button" (click)="deleteItem(employee.id)">Delete</button>
+      <button type="button">Edit</button>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,16 @@
+ul {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   li {
+      list-style: none;
+      width: 300px;
+      height: 400px;
+      border: 1px solid gray;
+      padding: 20px;
+      .btns {
+         display: flex;
+         justify-content: space-around;
+      }
+   }
+}
