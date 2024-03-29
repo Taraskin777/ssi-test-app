@@ -1,1 +1,28 @@
-<h1>add-new-item works!</h1>
+<section>
+  <form action="">
+    <mat-form-field class="input_wrapper">
+      <mat-label>Name</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Surname</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Phone</mat-label>
+      <input type="number" matInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Select category</mat-label>
+      <mat-select>
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Additional information</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+    <button class="submit_btn" mat-raised-button>Submit</button>
+  </form>
+</section>
