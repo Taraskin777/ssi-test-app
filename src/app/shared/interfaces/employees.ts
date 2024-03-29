@@ -1,9 +1,8 @@
 export interface IEmployee {
-  id: string;
-  name: string;
-  surname: string;
-  email: string;
-  phone: string;
-  category: string;
-  info: string;
+  name: string | null;
+  surname: string | null;
+  email: string | null;
+  phone: string | null;
+  category: string | null;
+  info: string | null;
 }

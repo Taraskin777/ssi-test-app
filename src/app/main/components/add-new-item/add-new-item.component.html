@@ -22,10 +22,7 @@
         type="email"
         formControlName="email"
         placeholder="Ex. pat@example.com" />
-      @if (
-        profileForm.get('email')?.hasError('email') &&
-        !profileForm.get('email')?.hasError('required')
-      ) {
+      @if (!profileForm.get('email')?.hasError('required')) {
         <mat-error>Please enter a valid email address</mat-error>
       }
       @if (profileForm.get('email')?.hasError('required')) {
@@ -34,9 +31,20 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label for="phone">Phone</mat-label>
-      <input type="number" id="phone" formControlName="phone" matInput />
+      <input
+        type="text"
+        id="phone"
+        formControlName="phone"
+        matInput
+        placeholder="Min. length 10 numbers" />
       @if (profileForm.get('phone')?.hasError('required')) {
         <mat-error>Phone is <strong>required!</strong></mat-error>
+      }
+      @if (
+        profileForm.get('phone')?.hasError('minlength') &&
+        profileForm.get('phone')?.hasError('pattern')
+      ) {
+        <mat-error>Please enter a valid phone number</mat-error>
       }
     </mat-form-field>
     <mat-form-field>

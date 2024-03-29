@@ -3,6 +3,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { IEmployee } from '../../../shared/interfaces/employees';
 
 import { ItemsService } from '../../../core/services/items.service';
 
@@ -34,13 +35,20 @@ export class AddNewItemComponent {
     name: new FormControl('', Validators.required),
     surname: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-    phone: new FormControl('', [Validators.required]),
+    phone: new FormControl('', [
+      Validators.required,
+      Validators.minLength(10),
+      Validators.pattern(/^\+?\d+$/),
+    ]),
     category: new FormControl('', Validators.required),
     info: new FormControl(''),
   });
 
   onSubmit() {
-    console.log(this.profileForm.value);
-    this.profileForm.reset();
+    if (this.profileForm.valid) {
+      this.itemsService.addNewItem(this.profileForm.value as IEmployee);
+
+      this.profileForm.reset();
+    }
   }
 }
