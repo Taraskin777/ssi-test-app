@@ -10,6 +10,11 @@ form {
      width: 150px;
      margin: 0 auto;
    }
+   .submit_btn:disabled {
+      opacity: 0.5;
+      background-color: grey;
+      cursor: not-allowed;
+    }
  }
  
  ::ng-deep .mdc-floating-label {

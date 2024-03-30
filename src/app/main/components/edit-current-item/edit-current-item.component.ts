@@ -70,4 +70,15 @@ export class EditCurrentItemComponent implements OnInit {
       ),
     });
   }
+
+  onSubmit(): void {
+    if (this.selectedEmployee) {
+      this.itemsService.editItem(
+        this.selectedEmployee.id,
+        this.employeeForm.value
+      );
+      this.router.navigate(['/']);
+    }
+    this.employeeForm.reset();
+  }
 }

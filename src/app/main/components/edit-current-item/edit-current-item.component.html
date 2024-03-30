@@ -1,6 +1,6 @@
 <h1>edit-current-item works!</h1>
 <section>
-  <form [formGroup]="employeeForm">
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
     <mat-form-field class="input_wrapper">
       <mat-label for="name">Name</mat-label>
       <input matInput id="name" type="text" formControlName="name" />
