@@ -1,7 +1,10 @@
 <app-header></app-header>
 <nav>
-  <a class="button" routerLink="/add-item">Add Item</a>
-  <!-- <a class="button" routerLink="/edit-item">Edit Item</a> -->
-  <a class="button" routerLink="">List of Items</a>
+  <button mat-raised-button color="accent" class="link" routerLink="/add-item">
+    Add New Item
+  </button>
+  <button mat-raised-button color="accent" class="link" routerLink="">
+    List of Items
+  </button>
 </nav>
 <router-outlet></router-outlet>
