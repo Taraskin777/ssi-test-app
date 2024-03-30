@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { ItemsService } from '../../../core/services/items.service';
+import { LoginService } from '../../../core/services/login.service';
 import { IEmployee } from '../../../shared/interfaces/employees';
 import { OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,6 +20,7 @@ export class ItemslistComponent implements OnInit {
 
   constructor(
     private itemsService: ItemsService,
+    private loginService: LoginService,
     private router: Router
   ) {}
 
@@ -37,6 +39,10 @@ export class ItemslistComponent implements OnInit {
   deleteItem(id: string): void {
     this.itemsService.removeItem(id);
     this.listOfEmployees = this.itemsService.getItems();
+  }
+
+  isAdmin(): boolean {
+    return this.loginService.getUserRole() === 'admin';
   }
 
   trackByEmployee(index: number, item: IEmployee): string {

@@ -1,3 +1,17 @@
-<div class="header">
-  <a routerLink=""><h1>Fake List of Employees</h1></a>
-</div>
+<header class="header">
+  <div class="title">
+    <a routerLink=""><h1>Fake List of Employees</h1></a>
+  </div>
+  <div class="log_btns">
+    <button
+      mat-raised-button
+      color="accent"
+      *ngIf="isAdmin()"
+      (click)="logOut()">
+      Logout
+    </button>
+    <button mat-raised-button color="accent" *ngIf="!isAdmin()">
+      <a routerLink="/login">Login as Admin</a>
+    </button>
+  </div>
+</header>

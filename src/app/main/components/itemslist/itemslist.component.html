@@ -8,14 +8,19 @@
     <p><span>Category:</span> {{ employee.category }}</p>
     <p><span>Information:</span> {{ employee.info }}</p>
     <div class="btns">
-      <button color="warn" mat-raised-button (click)="deleteItem(employee.id)">
+      <button
+        color="warn"
+        mat-raised-button
+        (click)="deleteItem(employee.id)"
+        *ngIf="isAdmin()">
         Delete
       </button>
       <button
         class="edit"
         mat-stroked-button
         color="accent"
-        (click)="editItem(employee.id)">
+        (click)="editItem(employee.id)"
+        *ngIf="isAdmin()">
         Edit
       </button>
     </div>

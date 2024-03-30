@@ -1,3 +1,19 @@
 p {
    text-align: center;
 }
+
+nav {
+   text-align: center;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-content: center;
+   gap: 10vw;
+   height: 50px;
+   margin: 20px;
+   .link {
+      text-decoration: none;
+      background-color: rgba(12, 123, 25, 0.39);
+      color: inherit;
+   }
+}
