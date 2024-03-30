@@ -9,6 +9,12 @@ form {
     color: white;
     width: 150px;
     margin: 0 auto;
+    cursor: pointer;
+  }
+  .submit_btn:disabled {
+    opacity: 0.5;
+    background-color: grey;
+    cursor: not-allowed;
   }
 }
 
