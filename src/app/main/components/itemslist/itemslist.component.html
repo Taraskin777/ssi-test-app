@@ -8,8 +8,16 @@
     <p>Category: {{ employee.category }}</p>
     <p>Information: {{ employee.info }}</p>
     <div class="btns">
-      <button type="button" (click)="deleteItem(employee.id)">Delete</button>
-      <button type="button" (click)="editItem(employee.id)">Edit</button>
+      <button color="warn" mat-raised-button (click)="deleteItem(employee.id)">
+        Delete
+      </button>
+      <button
+        class="edit"
+        mat-stroked-button
+        color="accent"
+        (click)="editItem(employee.id)">
+        Edit
+      </button>
     </div>
   </li>
 </ul>

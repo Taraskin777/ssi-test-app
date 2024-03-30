@@ -4,7 +4,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { ButtonComponent } from '../../../shared/ui/button/button.component';
 import { IEmployee } from '../../../shared/interfaces/employees';
 
 import { ItemsService } from '../../../core/services/items.service';
@@ -25,7 +24,6 @@ import {
     MatSelectModule,
     MatButtonModule,
     ReactiveFormsModule,
-    ButtonComponent,
   ],
   templateUrl: './add-new-item.component.html',
   styleUrl: './add-new-item.component.scss',

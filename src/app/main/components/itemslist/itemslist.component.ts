@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { ItemsService } from '../../../core/services/items.service';
 import { IEmployee } from '../../../shared/interfaces/employees';
 import { OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-itemslist',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
   templateUrl: './itemslist.component.html',
   styleUrl: './itemslist.component.scss',
 })
@@ -27,7 +28,6 @@ export class ItemslistComponent implements OnInit {
 
   editItem(id: string): void {
     const employee = this.listOfEmployees.find(emp => emp.id === id);
-    console.log(employee);
     if (employee) {
       this.itemsService.setSelectedEmployee(employee);
       this.router.navigate(['/edit-item']);

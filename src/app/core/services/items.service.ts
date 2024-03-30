@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-// import { Observable, BehaviorSubject } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 import { IEmployee } from '../../shared/interfaces/employees';
 
@@ -51,20 +50,11 @@ export class ItemsService {
   public editItem(id: string, formData: Partial<IEmployee>): void {
     const existingData: IEmployee[] = this.getItems();
     const index = existingData.findIndex(item => item.id === id);
-    // if (index !== -1) {
-    //   const editedEmployee: IEmployee = {
-    //     id: existingData[index].id,
-    //     name: formData.name || existingData[index].name,
-    //     surname: formData.surname || existingData[index].surname,
-    //     email: formData.email || existingData[index].email,
-    //     phone: formData.phone || existingData[index].phone,
-    //     category: formData.category || existingData[index].category,
-    //     info: formData.info || existingData[index].info,
-    //   };
+
     if (index !== -1) {
       const editedEmployee: IEmployee = {
-        ...existingData[index], // Копіюємо властивості існуючого працівника
-        ...formData, // Оновлюємо значення з formData
+        ...existingData[index],
+        ...formData,
       };
 
       existingData[index] = editedEmployee;
