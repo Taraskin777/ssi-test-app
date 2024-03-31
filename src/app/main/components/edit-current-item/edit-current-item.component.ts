@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSelectModule } from '@angular/material/select';
@@ -25,6 +26,7 @@ import {
     MatSelectModule,
     MatButtonModule,
     ReactiveFormsModule,
+    CommonModule,
   ],
   templateUrl: './edit-current-item.component.html',
   styleUrl: './edit-current-item.component.scss',

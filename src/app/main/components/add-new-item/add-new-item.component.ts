@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -24,6 +25,7 @@ import {
     MatSelectModule,
     MatButtonModule,
     ReactiveFormsModule,
+    CommonModule,
   ],
   templateUrl: './add-new-item.component.html',
   styleUrl: './add-new-item.component.scss',

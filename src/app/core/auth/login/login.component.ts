@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
     const password = this.loginForm.value.password;
     if (login && password) {
       if (this.loginService.login(login, password)) {
+        alert('Login successful');
         this.errorMessage = '';
         this.router.navigate(['/']);
       } else {
